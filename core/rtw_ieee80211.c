@@ -1303,7 +1303,9 @@ int rtw_get_mac_addr_intel(unsigned char *buf)
 	int ret = 0;
 	int i;
 	struct file *fp = NULL;
+	#if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 10, 0))
 	mm_segment_t oldfs;
+	#endif
 	unsigned char c_mac[MAC_ADDRESS_LEN];
 	char fname[] = "/config/wifi/mac.txt";
 	int jj, kk;
